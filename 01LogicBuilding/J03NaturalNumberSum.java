@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class J03NaturalNumberSum {
+    // [Naive Approach] Loop Based Summation
     public static int usingLoop(int n) {
         int sum = 0;
         for (int i = 1; i <= n; i++) {
