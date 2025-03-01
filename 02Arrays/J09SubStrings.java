@@ -15,6 +15,22 @@ public class J09SubStrings {
         }
     }
 
+    // Recursive Approach
+    public static void usingRecursion(int arr[], int start, int end) {
+        if (end == arr.length) {
+            return;
+        } else if (start > end) {
+            usingRecursion(arr, 0, end + 1);
+        } else {
+            for (int i = start; i < end; i++) {
+                System.out.print(arr[i] + "  ");
+            }
+            System.out.println(arr[end]);
+            usingRecursion(arr, start + 1, end);
+        }
+        return;
+    }
+
     public static void main(String args[]) {
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(1);
@@ -23,5 +39,9 @@ public class J09SubStrings {
         arr.add(4);
         System.out.println("All Non-empty sub-arrays: ");
         usingIteration(arr);
+
+        int arr2[] = {1,2,3};
+        System.out.println("\nUsing Recursion:- ");
+        usingRecursion(arr2, 0, 0);
     }
 }
