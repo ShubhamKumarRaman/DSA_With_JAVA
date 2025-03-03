@@ -31,20 +31,32 @@ public class J10ReverseArray {
     }
 
     // [Expected Approach – 2] By Swapping Elements – O(n) Time and O(1) Space
-    public static void usingSwappingElement(int arr[]){
+    public static void usingSwappingElement(int arr[]) {
         int n = arr.length;
-        for(int i = 0;i<n/2;i++){
+        for (int i = 0; i < n / 2; i++) {
             int temp = arr[i];
-            arr[i] = arr[n-i-1];
-            arr[n-i-1] = temp;
+            arr[i] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
         }
     }
 
-    public static void printArray(int arr[]){
-        for(int x: arr){
-            System.out.print(x+"  ");
+    // [Alternate Approach] Using Recursion – O(n) Time and O(n) Space
+    public static void usingRecursion(int arr[], int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int temp = arr[l];
+        arr[l] = arr[r];
+        arr[r] = temp;
+        usingRecursion(arr, l + 1, r - 1);
+    }
+
+    public static void printArray(int arr[]) {
+        for (int x : arr) {
+            System.out.print(x + "  ");
         }
     }
+
     public static void main(String args[]) {
         int[] arr = { 1, 4, 3, 2, 6, 5 };
         usingTemp(arr);
@@ -54,9 +66,14 @@ public class J10ReverseArray {
             System.out.print(x + "  ");
         }
 
-        int arr2[] =  {4, 5, 1, 2};
+        int arr2[] = { 4, 5, 1, 2 };
         usingSwappingElement(arr2);
-        System.out.println ("\nUsing Swapping Elements:- ");
+        System.out.println("\nUsing Swapping Elements:- ");
         printArray(arr2);
+
+        System.out.println("\nUsing recursion:- ");
+        int arr3[] = { 1, 2, 3, 4, 5 };
+        usingRecursion(arr3, 0, arr3.length - 1);
+        printArray(arr3);
     }
 }
