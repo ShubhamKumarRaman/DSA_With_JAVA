@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class J10ReverseArray {
     // [Naive Approach] Using a temporary array – O(n) Time and O(n) Space
@@ -51,6 +54,11 @@ public class J10ReverseArray {
         usingRecursion(arr, l + 1, r - 1);
     }
 
+    // Using Inbuilt Methods – O(n) Time and O(1) Space
+    public static void usingInbuiltMethod(List<Integer> arr) {
+        Collections.reverse(arr);
+    }
+
     public static void printArray(int arr[]) {
         for (int x : arr) {
             System.out.print(x + "  ");
@@ -75,5 +83,13 @@ public class J10ReverseArray {
         int arr3[] = { 1, 2, 3, 4, 5 };
         usingRecursion(arr3, 0, arr3.length - 1);
         printArray(arr3);
+
+        List<Integer> arr4 = new ArrayList<>(Arrays.asList(1, 4, 3, 2, 6, 5));
+
+        usingInbuiltMethod(arr4);
+        System.out.println("\nUsing Inbuilt method:- ");
+        for (int x : arr4) {
+            System.out.print(x + "  ");
+        }
     }
 }
