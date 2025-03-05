@@ -34,6 +34,19 @@ public class J12ZerostoEnd {
         }
     }
 
+    // [Expected Approach] One Traversal
+    public static void usingOneTraversal(int arr[]) {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[count];
+                arr[count] = temp;
+                count++;
+            }
+        }
+    }
+
     public static void printArray(int arr[]) {
         for (int num : arr) {
             System.out.print(num + "  ");
@@ -50,5 +63,11 @@ public class J12ZerostoEnd {
         System.out.println("\nUsing Two traversal");
         usingTwoTraversal(arr2);
         printArray(arr2);
+
+        int[] arr3 = { 1, 2, 0, 4, 6, 3, 0, 5, 0 };
+        System.out.println("\nUsing one traversal: ");
+        usingOneTraversal(arr3);
+        printArray(arr3);
+
     }
 }
