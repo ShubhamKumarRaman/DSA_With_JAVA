@@ -24,6 +24,18 @@ public class J01SinglyLinkedList {
         System.out.println("null");
     }
 
+    // Insert At Beginning
+    public void addFirst(int data) {
+        Node newNode = new Node(data);
+        size++;
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+
     public static void main(String args[]) {
 
         int data, choice;
