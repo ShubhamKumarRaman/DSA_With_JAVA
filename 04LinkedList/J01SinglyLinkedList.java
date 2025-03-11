@@ -36,6 +36,18 @@ public class J01SinglyLinkedList {
         head = newNode;
     }
 
+    // Insert At Last
+    public void addLast(int data) {
+        Node newNode = new Node(data);
+        size++;
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+        tail.next = newNode;
+        tail = newNode;
+    }
+
     public static void main(String args[]) {
 
         int data, choice;
