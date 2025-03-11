@@ -14,10 +14,21 @@ public class J01SinglyLinkedList {
     public static Node tail;
     public static int size;
 
+    // Print Linked List
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
     public static void main(String args[]) {
-        int choice;
+
+        int data, choice;
         System.out.println("0. Exit.");
-        
+
         System.out.println("Enter your choice: ");
 
     }
