@@ -30,6 +30,16 @@ public class J06DeleteKthNode {
         return head;
     }
 
+    // Print List
+    public static void printList(Node head) {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
+
     public static void main(String args[]) {
         Node head = new Node(1);
         head.next = new Node(2);
@@ -37,5 +47,10 @@ public class J06DeleteKthNode {
         head.next.next.next = new Node(4);
         head.next.next.next.next = new Node(5);
         head.next.next.next.next.next = new Node(6);
+        System.out.print("Before deletion:- ");
+        printList(head);
+        usingIterative(head, 2);
+        System.out.print("After deletion:- ");
+        printList(head);
     }
 }
