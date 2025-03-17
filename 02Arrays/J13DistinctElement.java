@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class J13DistinctElement {
     // [Naive Approach] Using Nested loops – O(n^2) Time and O(1) Space
@@ -32,6 +33,16 @@ public class J13DistinctElement {
         return result;
     }
 
+    // [Expected Approach] Using Hashing – O(n) Time and O(n) Space
+    public static ArrayList<Integer> usingHashing(int arr[]) {
+        HashSet<Integer> res = new HashSet<>();
+        for (int num : arr) {
+            res.add(num);
+        }
+
+        return new ArrayList<>(res);
+    }
+
     // Print List
     public static void printList(ArrayList<Integer> result) {
         for (int x : result) {
@@ -44,8 +55,12 @@ public class J13DistinctElement {
         int arr[] = { 12, 10, 9, 45, 2, 10, 10, 45 };
         ArrayList<Integer> result = usingNestedLoop(arr);
         printList(result);
+
         int arr2[] = { 1, 1, 1, 2, 1, 1 };
         result = usingSorting(arr2);
+        printList(result);
+
+        result= usingHashing(arr);
         printList(result);
     }
 }
