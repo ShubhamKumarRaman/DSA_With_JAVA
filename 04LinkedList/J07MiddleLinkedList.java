@@ -29,6 +29,18 @@ public class J07MiddleLinkedList {
         return temp.data;
     }
 
+    // [Expected Approach] By Tortoise and Hare Algorithm – O(n) time and O(1)
+    // space:
+    public static int usingTortoiseHare(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.data;
+    }
+
     public static void main(String args[]) {
         Node head = new Node(10);
         head.next = new Node(20);
@@ -36,6 +48,7 @@ public class J07MiddleLinkedList {
         head.next.next.next = new Node(40);
         head.next.next.next.next = new Node(50);
         head.next.next.next.next.next = new Node(60);
-        System.out.println(usingcountingNodes(head, countNodes(head) / 2));
+        System.out.println("Middle Node: " + usingcountingNodes(head, countNodes(head) / 2));
+        System.out.println("Middle Node: " + usingTortoiseHare(head));
     }
 }
