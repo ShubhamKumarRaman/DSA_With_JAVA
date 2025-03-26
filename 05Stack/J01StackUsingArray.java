@@ -14,11 +14,20 @@ public class J01StackUsingArray {
     }
 
     public static void main(String args[]) {
-        int choice = sc.nextInt();
+        System.out.println("Enter size of Stack: ");
+        int n = sc.nextInt();
+        Stack st = new Stack(n);
+        System.out.println("Size: " + size);
         while (true) {
             System.out.println("\n--------------------------------------");
+            System.out.println("0. Exit");
             System.out.println("1. Push");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
             switch (choice) {
+                case 0:
+                    System.exit(0);
+                    break;
                 case 1:
 
                     break;
