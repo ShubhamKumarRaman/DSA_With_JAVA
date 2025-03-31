@@ -31,10 +31,39 @@ public class J11RotateArray {
         }
     }
 
+    // Juggling Algorithm
+    public static void usingJugglingAlgo(int arr[], int d) {
+        int n = arr.length;
+        d %= n;
+        int cycles = findGCD(n, d);
+        for (int i = 0; i < cycles; i++) {
+            int currentIdx = i;
+            int currentEle = arr[currentIdx];
+            do {
+                int nextIdx = (currentIdx + d) % n;
+                int nextEle = arr[nextIdx];
+
+                arr[nextIdx] = currentEle;
+                currentEle = nextEle;
+                currentIdx = nextIdx;
+            } while (currentIdx != i);
+        }
+    }
+
+    public static int findGCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
     public static void printArray(int arr[]) {
         for (int x : arr) {
             System.out.print(x + "  ");
         }
+        System.out.println();
     }
 
     public static void main(String args[]) {
@@ -48,5 +77,10 @@ public class J11RotateArray {
         System.out.println("\nUsing temprory array:-");
         usingTemporaryArray(arr2, d);
         printArray(arr2);
+
+        int[] arr3 = { 1, 2, 3, 4, 5, 6, 7, 8 };
+        System.out.println("\nUsing Juggling Algorithm:- ");
+        usingJugglingAlgo(arr3, 3);
+        printArray(arr3);
     }
 }
