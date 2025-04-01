@@ -6,7 +6,7 @@ public class J01StackUsingArray {
     static int top, size;
 
     // Implementation
-    public class Stack {
+    public static class Stack {
         public Stack(int size) {
             stack = new int[size];
             top = -1;
