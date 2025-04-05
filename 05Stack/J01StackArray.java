@@ -41,6 +41,16 @@ public class J01StackArray {
         }
     }
 
+    // Peek
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is Empty.........!!!");
+            return -1;
+        } else {
+            return stackArray[top];
+        }
+    }
+
     public static void main(String args[]) {
 
     }
