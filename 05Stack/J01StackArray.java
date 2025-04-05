@@ -51,6 +51,14 @@ public class J01StackArray {
         }
     }
 
+    // Display
+    public void display() {
+        for (int i = top; i >= 0; i++) {
+            System.out.println("|  " + stackArray[i] + "  |");
+        }
+        System.out.println("______");
+    }
+
     public static void main(String args[]) {
 
     }
