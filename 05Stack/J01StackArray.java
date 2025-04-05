@@ -25,7 +25,19 @@ public class J01StackArray {
             System.out.println("Stack is Full........!!!");
         } else {
             stackArray[++top] = data;
-            System.out.println(data + " is pushed.");
+            System.out.println(data + " is pushed to stack.");
+        }
+    }
+
+    // Pop
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack is Empty.........!!!");
+            return -1;
+        } else {
+            int data = stackArray[top--];
+            System.out.println(data + " is popped from stack.");
+            return data;
         }
     }
 
