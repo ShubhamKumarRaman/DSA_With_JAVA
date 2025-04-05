@@ -19,7 +19,15 @@ public class J01StackArray {
         return (top == maxSize - 1);
     }
 
-    
+    // Push
+    public void push(int data) {
+        if (isFull()) {
+            System.out.println("Stack is Full........!!!");
+        } else {
+            stackArray[++top] = data;
+            System.out.println(data + " is pushed.");
+        }
+    }
 
     public static void main(String args[]) {
 
