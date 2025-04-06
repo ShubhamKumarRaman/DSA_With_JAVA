@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class J01StackArray {
     private int maxSize;
     private int[] stackArray;
@@ -60,6 +62,30 @@ public class J01StackArray {
     }
 
     public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Size of Stack: ");
+        int size = sc.nextInt();
+        J01StackArray s = new J01StackArray(size);
+        int choice;
+        do {
+            System.out.println("------------------------------");
+            System.out.println("0. Exit");
+            System.out.println("1. Push");
+            System.out.println("2. Pop");
+            System.out.println("3. Peek");
+            System.out.println("4. Display");
+            System.out.print("\nEnter your choice (0-4): ");
+            choice = sc.nextInt();
 
+            switch (choice) {
+                case 0:
+                    System.exit(0);
+                    break;
+            
+                default:
+                    break;
+            }
+        } while (choice != 0);
+        sc.close();
     }
 }
