@@ -55,6 +55,7 @@ public class J01StackArray {
     public void display() {
         if (isEmpty()) {
             System.out.println("Stack is Empty....!");
+            return;
         }
         for (int i = top; i >= 0; i--) {
             System.out.println("|  " + stackArray[i] + "  |");
@@ -70,7 +71,7 @@ public class J01StackArray {
         int choice, value;
         do {
             System.out.println("------------------------------");
-            System.out.println("**** Stack Operations ****");
+            System.out.println("**** Stack Operations Menu ****");
             System.out.println("0. Exit");
             System.out.println("1. Push");
             System.out.println("2. Pop");
@@ -94,13 +95,15 @@ public class J01StackArray {
                     break;
                 case 3:
                     value = s.peek();
-                    System.out.println(value + " is peeked from stack.");
+                    if (value != -1) {
+                        System.out.println(value + " is peeked from stack.");
+                    }
                     break;
                 case 4:
                     s.display();
                     break;
                 default:
-                    System.out.println("Invalid choice..! Choose correction option ......!");
+                    System.out.println("Invalid choice..! Choose correct option ......!");
                     break;
             }
         } while (choice != 0);
