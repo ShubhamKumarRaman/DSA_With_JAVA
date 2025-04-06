@@ -32,14 +32,12 @@ public class J01StackArray {
     }
 
     // Pop
-    public int pop() {
+    public void pop() {
         if (isEmpty()) {
             System.out.println("Stack is Empty.........!!!");
-            return -1;
         } else {
             int data = stackArray[top--];
             System.out.println(data + " is popped from stack.");
-            return data;
         }
     }
 
@@ -55,10 +53,13 @@ public class J01StackArray {
 
     // Display
     public void display() {
-        for (int i = top; i >= 0; i++) {
+        if (isEmpty()) {
+            System.out.println("Stack is Empty....!");
+        }
+        for (int i = top; i >= 0; i--) {
             System.out.println("|  " + stackArray[i] + "  |");
         }
-        System.out.println("______");
+        System.out.println("--------");
     }
 
     public static void main(String args[]) {
@@ -66,9 +67,10 @@ public class J01StackArray {
         System.out.print("Enter Size of Stack: ");
         int size = sc.nextInt();
         J01StackArray s = new J01StackArray(size);
-        int choice;
+        int choice, value;
         do {
             System.out.println("------------------------------");
+            System.out.println("**** Stack Operations ****");
             System.out.println("0. Exit");
             System.out.println("1. Push");
             System.out.println("2. Pop");
@@ -79,10 +81,26 @@ public class J01StackArray {
 
             switch (choice) {
                 case 0:
-                    System.exit(0);
+                    // System.exit(0);
+                    System.out.println("Exiting Program..............");
                     break;
-            
+                case 1:
+                    System.out.print("Enter the value: ");
+                    value = sc.nextInt();
+                    s.push(value);
+                    break;
+                case 2:
+                    s.pop();
+                    break;
+                case 3:
+                    value = s.peek();
+                    System.out.println(value + " is peeked from stack.");
+                    break;
+                case 4:
+                    s.display();
+                    break;
                 default:
+                    System.out.println("Invalid choice..! Choose correction option ......!");
                     break;
             }
         } while (choice != 0);
