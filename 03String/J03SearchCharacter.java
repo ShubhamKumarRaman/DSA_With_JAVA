@@ -9,10 +9,16 @@ public class J03SearchCharacter {
         return -1;
     }
 
+    // Approach - By Using in-built library functions - O(n) Time and O(1) Space
+    public static int SearchCharBuiltin(String str, char c) {
+        return str.indexOf(c);
+    }
+
     public static void main(String args[]) {
         String s = "geeksforgeeks";
         char ch = 'k';
 
         System.out.println(SearchChar(s, ch));
+        System.out.println(SearchCharBuiltin(s, ch));
     }
 }
