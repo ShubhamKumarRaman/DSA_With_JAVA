@@ -97,8 +97,8 @@ Let’s grow and learn together! 🚀
 
 **Shubham Kumar**  
 📧 Email: shubham582120@gmail.com  
-🔗 LinkedIn: [linkedin.com/in/your-profile](https://www.linkedin.com/in/shubham-kumar-040b1a27a/)  
-🌐 Portfolio: [your-portfolio-link.com](https://shubham-portfolio52.netlify.app/)
+🔗 LinkedIn: [linkedin.com/in/Shubham-Kumar](https://www.linkedin.com/in/shubham-kumar-040b1a27a/)  
+🌐 Portfolio: [Shubham Kumar](https://shubham-portfolio52.netlify.app/)
 
 ---
 
