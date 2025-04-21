@@ -34,9 +34,20 @@ public class J18SingleElementOccur {
         return -1;
     }
 
+    // Expected Approach – Using XOR – O(n) Time and O(1) Space
+    public static int usingXOR(int arr[]) {
+        int result = 0;
+        for (int num : arr) {
+            result = result ^ num;
+        }
+        return result;
+    }
+
     public static void main(String args[]) {
         int[] arr = { 2, 3, 5, 4, 5, 2, 4 };
         System.out.println("Single Element: " + SearchSingleElement(arr));
-        System.out.println("Using HashMap: "+usingHashMap(arr));
+        System.out.println("Using HashMap: " + usingHashMap(arr));
+        int[] arr2 = {2, 3, 5, 4, 5, 3, 4};
+        System.out.println("Single Element: "+usingXOR(arr2));
     }
 }
