@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class J04LevelOrderTraversal {
     public static class Node {
@@ -30,6 +32,36 @@ public class J04LevelOrderTraversal {
     List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> result = new ArrayList<>();
         levelOrderRec(root, 0, result);
+        return result;
+    }
+
+    // [Expected Approach] Using Queue (Iterative) – O(n) time and O(n) space
+    static List<List<Integer>> levelOrderItr(Node root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+
+        Queue<Node> q = new LinkedList<>();
+
+        q.offer(root);
+        int currentLevel = 0;
+        while (!q.isEmpty()) {
+            int len = q.size();
+            result.add(new ArrayList<>());
+
+            for (int i = 0; i < len; i++) {
+                Node node = q.poll();
+                result.get(currentLevel).add(node.data);
+                if (node.left != null) {
+                    q.offer(node.left);
+                }
+                if (node.right != null) {
+                    q.offer(node.right);
+                }
+            }
+            currentLevel++;
+        }
         return result;
     }
 
@@ -64,6 +96,21 @@ public class J04LevelOrderTraversal {
         List<List<Integer>> res = tree.levelOrder(root);
 
         for (List<Integer> level : res) {
+            System.out.print("[");
+            for (int i = 0; i < level.size(); i++) {
+                System.out.print(level.get(i));
+                if (i < level.size() - 1)
+                    System.out.print(", ");
+            }
+            System.out.print("] ");
+        }
+
+        System.out.println();
+
+        List<List<Integer>> res2 = levelOrderItr(root);
+
+        // Print the result in the required format
+        for (List<Integer> level : res2) {
             System.out.print("[");
             for (int i = 0; i < level.size(); i++) {
                 System.out.print(level.get(i));
