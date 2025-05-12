@@ -34,9 +34,21 @@ public class J19MissingNumber {
         return -1;
     }
 
+    // [Expected Approach 1] Using Sum of n terms Formula – O(n) Time and O(1) Space
+    public static int usingSum(int arr[]) {
+        long n = arr.length + 1;
+        long sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        long expSum = n * (n + 1) / 2;
+        return (int) (expSum - sum);
+    }
+
     public static void main(String args[]) {
         int[] arr = { 8, 2, 4, 5, 3, 7, 1 };
         System.out.println("Missing Number: " + usingLinearSearch(arr));
         System.out.println("Missing Number: " + usingHashing(arr));
+        System.out.println("Missing Number: " + usingSum(arr));
     }
 }
