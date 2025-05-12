@@ -45,10 +45,24 @@ public class J19MissingNumber {
         return (int) (expSum - sum);
     }
 
+    // [Expected Approach 2] Using XOR Operation – O(n) Time and O(1) Space
+    public static int usingXOR(int arr[]) {
+        int n = arr.length + 1;
+        int XOR1 = 0, XOR2 = 0;
+        for (int i = 0; i < n - 1; i++) {
+            XOR2 ^= arr[i];
+        }
+        for (int i = 1; i <= n; i++) {
+            XOR1 ^= i;
+        }
+        return XOR1 ^ XOR2;
+    }
+
     public static void main(String args[]) {
         int[] arr = { 8, 2, 4, 5, 3, 7, 1 };
         System.out.println("Missing Number: " + usingLinearSearch(arr));
         System.out.println("Missing Number: " + usingHashing(arr));
         System.out.println("Missing Number: " + usingSum(arr));
+        System.out.println("Missing Number: " + usingXOR(arr));
     }
 }
