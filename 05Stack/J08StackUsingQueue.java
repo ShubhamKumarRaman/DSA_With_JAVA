@@ -39,6 +39,13 @@ public class J08StackUsingQueue {
     }
 
     public static void main(String args[]) {
+        stack1 s1 = new stack1();
+        s1.push(10);
+        s1.push(20);
+        s1.push(30);
+        s1.printStack();
 
+        System.out.println(s1.pop() + " element popped.");
+        s1.printStack();
     }
 }
