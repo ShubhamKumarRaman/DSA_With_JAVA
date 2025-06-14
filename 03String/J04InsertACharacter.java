@@ -5,8 +5,22 @@ public class J04InsertACharacter {
         return s.toString();
     }
 
+    // [Approch-2] Using Custom Method
+    public static String insertCharacter2(String s, int pos, char ch){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0;i<s.length();i++){
+            if(pos==i){
+                sb.append(ch);
+            }
+            sb.append(s.charAt(i));
+        }
+        return sb.toString();
+    }
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder("Helo");
         System.out.println(insertCharacter(sb, 2, 'l'));
+
+        String str = "Helo";
+        System.out.println(insertCharacter2(str, 3, 'L'));
     }
 }
