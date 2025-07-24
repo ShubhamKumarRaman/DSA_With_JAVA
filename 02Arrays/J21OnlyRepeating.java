@@ -51,6 +51,20 @@ public class J21OnlyRepeating {
         return (sum - expectedSum);
     }
 
+    // [Expected Approach 2] Using XOR - O(n) Time and O(1) Space
+    public static int usingXOR(int arr[]) {
+        int result = 0;
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            result = result ^ (i + 1) ^ arr[i];
+        }
+
+        result ^= arr[n - 1];
+
+        return result;
+    }
+
     public static void main(String args[]) {
         int[] arr = { 1, 3, 2, 3, 4 };
         System.out.println("Repeating Number: " + usingNestedLoop(arr));
@@ -58,5 +72,6 @@ public class J21OnlyRepeating {
         System.out.println("Repeating Number: " + usingHashSet(arr));
         int[] arr2 = { 1, 5, 1, 2, 3, 4 };
         System.out.println("Repeating Number: " + usingSumFormula(arr2));
+        System.out.println("Repeating Number: " + usingXOR(arr2));
     }
 }
