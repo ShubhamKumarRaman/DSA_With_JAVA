@@ -77,6 +77,26 @@ public class J21OnlyRepeating {
         return -1;
     }
 
+    // [Expected Approach 4] Floyd's Cycle Detection - O(n) Time and O(1) Space
+    public static int usingFloydCycle(int arr[]) {
+        int slow = arr[0];
+        int fast = arr[0];
+
+        do {
+            slow = arr[slow];
+            fast = arr[arr[fast]];
+        } while (slow != fast);
+
+        fast = arr[0];
+
+        while (slow != fast) {
+            slow = arr[slow];
+            fast = arr[fast];
+        }
+
+        return slow;
+    }
+
     public static void main(String args[]) {
         int[] arr = { 1, 3, 2, 3, 4 };
         System.out.println("Repeating Number: " + usingNestedLoop(arr));
@@ -86,5 +106,6 @@ public class J21OnlyRepeating {
         System.out.println("Repeating Number: " + usingSumFormula(arr2));
         System.out.println("Repeating Number: " + usingXOR(arr2));
         System.out.println("Repeating Number: " + usingElementIndex(arr2));
+        System.out.println("Repeating Number: " + usingFloydCycle(arr2));
     }
 }
