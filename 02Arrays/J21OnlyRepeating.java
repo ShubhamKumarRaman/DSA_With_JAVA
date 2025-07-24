@@ -65,6 +65,18 @@ public class J21OnlyRepeating {
         return result;
     }
 
+    // [Expected Approach 3] Using Elements as Indexes - O(n) Time and O(1) Space
+    public static int usingElementIndex(int arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[Math.abs(arr[i])] < 0) {
+                return Math.abs(arr[i]);
+            }
+            arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];
+        }
+
+        return -1;
+    }
+
     public static void main(String args[]) {
         int[] arr = { 1, 3, 2, 3, 4 };
         System.out.println("Repeating Number: " + usingNestedLoop(arr));
@@ -73,5 +85,6 @@ public class J21OnlyRepeating {
         int[] arr2 = { 1, 5, 1, 2, 3, 4 };
         System.out.println("Repeating Number: " + usingSumFormula(arr2));
         System.out.println("Repeating Number: " + usingXOR(arr2));
+        System.out.println("Repeating Number: " + usingElementIndex(arr2));
     }
 }
