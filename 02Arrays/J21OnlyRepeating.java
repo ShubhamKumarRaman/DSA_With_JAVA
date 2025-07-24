@@ -40,11 +40,23 @@ public class J21OnlyRepeating {
         return -1;
     }
 
+    // [Expected Approach 1] Sum Formula - O(n) Time and O(1) Space
+    public static int usingSumFormula(int arr[]) {
+        int n = arr.length;
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        int expectedSum = (n - 1) * (n - 1 + 1) / 2;
+        return (sum - expectedSum);
+    }
+
     public static void main(String args[]) {
         int[] arr = { 1, 3, 2, 3, 4 };
         System.out.println("Repeating Number: " + usingNestedLoop(arr));
         System.out.println("Repeating Number: " + usingSorting(arr));
         System.out.println("Repeating Number: " + usingHashSet(arr));
         int[] arr2 = { 1, 5, 1, 2, 3, 4 };
+        System.out.println("Repeating Number: " + usingSumFormula(arr2));
     }
 }
