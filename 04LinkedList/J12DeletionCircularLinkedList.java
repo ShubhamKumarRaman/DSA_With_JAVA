@@ -60,6 +60,27 @@ public class J12DeletionCircularLinkedList {
         return last;
     }
 
+    // 3. Deletion at the end of Circular linked list
+    public static Node deleteLast(Node last) {
+        if (last == null) {
+            System.out.println("List is Empty");
+            return last;
+        }
+        Node current = last.next;
+        // Single Element
+        if(current==last){
+            last=null;
+            return last;
+        }
+        
+        while(current.next!=last){
+            current = current.next;
+        }
+        current.next = last.next;
+        last = current;
+        return last;
+    }
+
     public static void printList(Node last) {
         if (last == null) {
             System.out.println("List is Empty.");
@@ -90,6 +111,9 @@ public class J12DeletionCircularLinkedList {
         printList(last);
 
         deletePosition(last, 50);
+        printList(last);
+
+        deleteLast(last);
         printList(last);
 
     }
