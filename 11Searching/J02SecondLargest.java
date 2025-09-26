@@ -13,8 +13,32 @@ public class J02SecondLargest {
         return -1;
     }
 
+    // [Better Approach] Two Pass Search
+    public static int usingTwoPass(int arr[]) {
+        int n = arr.length;
+        int largest = -1;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+
+        int secondLargest = -1;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > secondLargest && arr[i] != largest) {
+                secondLargest = arr[i];
+            }
+        }
+
+        return secondLargest;
+    }
+
     public static void main(String args[]) {
         int[] arr = { 12, 35, 1, 10, 34, 1 };
-        System.out.println(usingSorting(arr));
+        System.out.println("Using Sorting: " + usingSorting(arr));
+
+        System.out.println("Using Two Pass: " + usingTwoPass(arr));
+
+
     }
 }
