@@ -33,12 +33,26 @@ public class J02SecondLargest {
         return secondLargest;
     }
 
+    // [Expected Approach] One Pass Search
+    public static int usingOnePass(int[] arr) {
+        int largest = -1, secondLargest = -1;
+
+        for (int n : arr) {
+            if (n > largest) {
+                secondLargest = largest;
+                largest = n;
+            }
+        }
+
+        return secondLargest;
+    }
+
     public static void main(String args[]) {
         int[] arr = { 12, 35, 1, 10, 34, 1 };
         System.out.println("Using Sorting: " + usingSorting(arr));
 
         System.out.println("Using Two Pass: " + usingTwoPass(arr));
 
-
+        System.out.println("Using One Pass: " + usingOnePass(arr));
     }
 }
