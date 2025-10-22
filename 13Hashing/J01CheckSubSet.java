@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,21 +41,42 @@ public class J01CheckSubSet {
         return true;
     }
 
+    // [Better Approach] Using Sorting and Two Pointer
+    public static boolean usingTwoPointer(int[] arr, int[] sub) {
+        Arrays.sort(arr);
+        Arrays.sort(sub);
+
+        int i = 0, j = 0;
+        while (i < arr.length && j < sub.length) {
+            if (arr[i] < sub[j]) {
+                i++;
+            } else if (arr[i] == sub[j]) {
+                i++;
+                j++;
+            } else {
+                return false;
+            }
+        }
+        return j == sub.length;
+    }
+
     public static void main(String args[]) {
         int[] a = { 11, 1, 13, 21, 3, 7 };
         int[] b = { 11, 3, 7, 1 };
 
         System.out.println("Subset: " + usingHashSet(a, b));
         System.out.println("Using Nested Loop: " + usingNestedLoops(a, b));
+        System.out.println("Using Two Pointer: " + usingTwoPointer(a, b));
         int[] c = { 10, 5, 2, 23, 19 };
         int[] d = { 19, 5, 3 };
 
         System.out.println("SubSet: " + usingHashSet(c, d));
         System.out.println("Using Nested Loop: " + usingNestedLoops(c, d));
-
+        System.out.println("Using Two Pointer: " + usingTwoPointer(c, d));
         int[] e = { 1, 2, 2 };
         int[] f = { 1, 1 };
         System.out.println("Subset: " + usingHashSet(e, f));
         System.out.println("Using Nested Loop: " + usingNestedLoops(e, f));
+        System.out.println("Using Two Pointer: " + usingTwoPointer(e, f));
     }
 }
