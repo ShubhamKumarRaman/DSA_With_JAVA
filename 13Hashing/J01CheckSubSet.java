@@ -1,6 +1,8 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Map;
 
 public class J01CheckSubSet {
 
@@ -76,6 +78,25 @@ public class J01CheckSubSet {
         return true;
     }
 
+    // Using HashMap
+    public static boolean usingHashMap(int[] arr, int[] sub) {
+        Map<Integer, Integer> freq = new HashMap<>();
+
+        // Count frequency of number
+        for (int n : arr) {
+            freq.put(n, freq.getOrDefault(n, 0) + 1);
+        }
+
+        // Check the frequency is equal or not
+        for (int n : sub) {
+            if (!freq.containsKey(n) || freq.get(n) == 0) {
+                return false;
+            }
+            freq.put(n, freq.get(n) - 1);
+        }
+        return true;
+    }
+
     public static void main(String args[]) {
         int[] a = { 11, 1, 13, 21, 3, 7 };
         int[] b = { 11, 3, 7, 1 };
@@ -83,7 +104,8 @@ public class J01CheckSubSet {
         System.out.println("Subset: " + usingHashSet(a, b));
         System.out.println("Using Nested Loop: " + usingNestedLoops(a, b));
         System.out.println("Using Two Pointer: " + usingTwoPointer(a, b));
-        System.out.println("Using Hasibng : "+usingHashing(a, b));
+        System.out.println("Using Hasibng : " + usingHashing(a, b));
+        System.out.println("Using HashMap: " + usingHashMap(a, b));
 
         int[] c = { 10, 5, 2, 23, 19 };
         int[] d = { 19, 5, 3 };
@@ -91,14 +113,15 @@ public class J01CheckSubSet {
         System.out.println("SubSet: " + usingHashSet(c, d));
         System.out.println("Using Nested Loop: " + usingNestedLoops(c, d));
         System.out.println("Using Two Pointer: " + usingTwoPointer(c, d));
-        System.out.println("Using Hasibng : "+usingHashing(a, b));
+        System.out.println("Using Hasibng : " + usingHashing(c, d));
+        System.out.println("Using HashMap: " + usingHashMap(c, d));
 
         int[] e = { 1, 2, 2 };
         int[] f = { 1, 1 };
         System.out.println("Subset: " + usingHashSet(e, f));
         System.out.println("Using Nested Loop: " + usingNestedLoops(e, f));
         System.out.println("Using Two Pointer: " + usingTwoPointer(e, f));
-        System.out.println("Using Hasibng : "+usingHashing(a, b));
-        
+        System.out.println("Using Hasibng : " + usingHashing(c, d));
+        System.out.println("Using HashMap: " + usingHashMap(c, d));
     }
 }
