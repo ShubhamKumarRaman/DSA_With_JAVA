@@ -60,6 +60,22 @@ public class J01CheckSubSet {
         return j == sub.length;
     }
 
+    // [Expected Approach] Using Hashing - O(n + m) Time and O(n) Space
+    public static boolean usingHashing(int[] arr, int[] sub) {
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int el : arr) {
+            set.add(el);
+        }
+
+        for (int el : sub) {
+            if (!set.contains(el)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String args[]) {
         int[] a = { 11, 1, 13, 21, 3, 7 };
         int[] b = { 11, 3, 7, 1 };
@@ -67,16 +83,22 @@ public class J01CheckSubSet {
         System.out.println("Subset: " + usingHashSet(a, b));
         System.out.println("Using Nested Loop: " + usingNestedLoops(a, b));
         System.out.println("Using Two Pointer: " + usingTwoPointer(a, b));
+        System.out.println("Using Hasibng : "+usingHashing(a, b));
+
         int[] c = { 10, 5, 2, 23, 19 };
         int[] d = { 19, 5, 3 };
 
         System.out.println("SubSet: " + usingHashSet(c, d));
         System.out.println("Using Nested Loop: " + usingNestedLoops(c, d));
         System.out.println("Using Two Pointer: " + usingTwoPointer(c, d));
+        System.out.println("Using Hasibng : "+usingHashing(a, b));
+
         int[] e = { 1, 2, 2 };
         int[] f = { 1, 1 };
         System.out.println("Subset: " + usingHashSet(e, f));
         System.out.println("Using Nested Loop: " + usingNestedLoops(e, f));
         System.out.println("Using Two Pointer: " + usingTwoPointer(e, f));
+        System.out.println("Using Hasibng : "+usingHashing(a, b));
+        
     }
 }
