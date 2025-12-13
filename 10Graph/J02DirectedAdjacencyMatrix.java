@@ -5,11 +5,13 @@ public class J02DirectedAdjacencyMatrix {
     public static ArrayList<ArrayList<Integer>> createGraph(int V, int[][] edges) {
         ArrayList<ArrayList<Integer>> mat = new ArrayList<>();
 
+        // Initialize the matrix with 0
         for (int i = 0; i < V; i++) {
             ArrayList<Integer> row = new ArrayList<>(Collections.nCopies(V, 0));
             mat.add(row);
         }
 
+        // Add each edge to the adjacency matrix
         for (int[] it : edges) {
             int u = it[0];
             int v = it[1];
