@@ -43,12 +43,30 @@ public class J01FibonacciNumber {
         return dp[n];
     }
 
+    // Using store previous value in variable
+    public static int nthFibonacci4(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int a = 0;
+        int b = 1;
+        for (int i = 2; i <= n; i++) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+    }
+
     public static void main(String args[]) {
         System.out.println("Using Recursion:- " + nthFibonacci1(5));
         System.out.println("Using Memoization:- " + nthFibonacci2(5));
         System.out.println("Using Tabulation:- " + nthFibonacci3(5));
+        System.out.println("Using Variable:- " + nthFibonacci4(5));
+        
         System.out.println("Using Recursion:- " + nthFibonacci1(8));
         System.out.println("Using Memoization:- " + nthFibonacci2(8));
         System.out.println("Using Tabulation:- " + nthFibonacci3(8));
+        System.out.println("Using Variable:- " + nthFibonacci4(8));
     }
 }
