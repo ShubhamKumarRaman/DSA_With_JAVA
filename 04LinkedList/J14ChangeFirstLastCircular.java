@@ -19,9 +19,9 @@ public class J14ChangeFirstLastCircular {
     }
 
     // Method 1: (By Changing Links of First and Last Nodes)
-    public static Node changeFirstLastNode(Node head){
+    // public static Node changeFirstLastNode(Node head){
         
-    }
+    // }
 
     // Method 2: (By Swapping Values of First and Last nodes)
     public static Node changeFirstLast(Node head) {
