@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class J03RemoveDuplicate {
     // my-approach Using Two pointer approach
@@ -13,13 +14,34 @@ public class J03RemoveDuplicate {
                 arr[++idx] = arr[i];
             }
         }
-        return idx+1;
+        return idx + 1;
+    }
+
+    // Using Hash Set - Works for Unsorted Also - O(n) Time and O(n) Space
+    public static int usingHashing(int[] arr) {
+        int n = arr.length;
+        int idx = 0;
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            if(!set.contains(arr[i])){
+                arr[idx++] = arr[i];
+                set.add(arr[i]);
+            }
+        }
+        return idx;
     }
 
     public static void main(String args[]) {
         int[] arr = { 1, 2, 2, 3, 4, 4, 4, 5, 5 };
         int idx = usingTwoPointer(arr);
         for (int i = 0; i < idx; i++) {
+            System.out.print(arr[i] + "  ");
+        }
+        System.out.println();
+
+        int[] arr2 = { 1, 2, 2, 3, 4, 4, 4, 5, 5 };
+        idx = usingHashing(arr2);
+        for(int i = 0;i<idx;i++){
             System.out.print(arr[i]+"  ");
         }
     }
