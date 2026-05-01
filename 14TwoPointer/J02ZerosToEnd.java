@@ -36,6 +36,18 @@ public class J02ZerosToEnd {
         }
     }
 
+    // [Expected Approach] One Traversal-O(n) Time and O(1) space
+    public static void usingOneTraversal(int[] arr) {
+        int n = arr.length;
+        int j = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != 0) {
+                arr[j] = arr[i] + arr[j] - (arr[i] = arr[j]);
+                j++;
+            }
+        }
+    }
+
     public static void main(String args[]) {
         int[] arr = { 1, 2, 0, 4, 3, 0, 5, 0 };
         usingTempArray(arr);
@@ -46,5 +58,8 @@ public class J02ZerosToEnd {
         usingTwoTraversal(arr2);
         System.out.println(Arrays.toString(arr2));
 
+        int[] arr3 = { 1, 2, 0, 4, 3, 0, 5, 0 };
+        usingOneTraversal(arr3);
+        System.out.println(Arrays.toString(arr3));
     }
 }
