@@ -38,6 +38,29 @@ public class J02SinglyLinkedList {
         temp.next = newNode;
     }
 
+    // Insert at Specific Position
+    public void insertAtPosition(int data, int position) {
+        if (position == 1) {
+            insertAtBeginning(data);
+            return;
+        }
+
+        Node newNode = new Node(data);
+        Node temp = head;
+
+        for (int i = 1; i < position - 1 && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+
     public static void main(String args[]) {
 
     }
