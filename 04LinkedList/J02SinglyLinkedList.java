@@ -10,6 +10,18 @@ public class J02SinglyLinkedList {
         }
     }
 
+    Node head;
+
+    // Create Operation
+
+    // Insertion at Beginning
+    public void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+
+        newNode.next = head;
+        head = newNode;
+    }
+
     public static void main(String args[]) {
 
     }
