@@ -28,6 +28,22 @@ public class J01BST {
         return root;
     }
 
+    // Search Node
+    public static boolean searchNode(Node root, int key) {
+        if (root == null) {
+            return false;
+        }
+
+        if (root.data == key) {
+            return true;
+        }
+
+        if (key < root.data) {
+            return searchNode(root.left, key);
+        }
+        return searchNode(root.right, key);
+    }
+
     public static void main(String args[]) {
 
     }
