@@ -38,6 +38,14 @@ public class J02Minimum {
         return sortedList.get(0);
     }
 
+    // [Better Approach] Using Recursion - O(h) Time and O(h) Space
+    public static int minValueRecursion(Node root) {
+        if (root.left == null) {
+            return root.data;
+        }
+        return minValueInOrder(root.left);
+    }
+
     public static void printLevelOrder() {
         if (root == null)
             return;
@@ -100,6 +108,6 @@ public class J02Minimum {
         printLevelOrder();
 
         System.out.println("Approach 1:- " + minValueInOrder(root));
-
+        System.out.println("Approach 2:- " + minValueRecursion(root));
     }
 }
