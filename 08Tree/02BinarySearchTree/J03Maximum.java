@@ -75,6 +75,17 @@ public class J03Maximum {
         return list.get(list.size() - 1);
     }
 
+    // [Better Approach] Using Recursion - O(h) Time and O(h) Space
+    public static int maxValueRecursion(Node root) {
+        if (root == null) {
+            return -1;
+        }
+        if (root.left == null) {
+            return root.data;
+        }
+        return maxValueRecursion(root.left);
+    }
+
     public static void main(String args[]) {
         root = new Node(5);
         root.left = new Node(4);
@@ -86,5 +97,6 @@ public class J03Maximum {
         printTree(root);
 
         System.out.println("Approach 1:- " + maxValueInOrder(root));
+        System.out.println("Approach 2:- " + maxValueRecursion(root));
     }
 }
