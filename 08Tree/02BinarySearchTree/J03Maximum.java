@@ -80,10 +80,23 @@ public class J03Maximum {
         if (root == null) {
             return -1;
         }
-        if (root.left == null) {
+        if (root.right == null) {
             return root.data;
         }
-        return maxValueRecursion(root.left);
+        return maxValueRecursion(root.right);
+    }
+
+    // [Expected Approach] Traversing Across Right Edges Only – O(h) Time and O(1)
+    // Space
+    public static int maxValueIterative(Node root) {
+        if (root == null) {
+            return -1;
+        }
+        Node curr = root;
+        while (curr.right != null) {
+            curr = curr.right;
+        }
+        return curr.data;
     }
 
     public static void main(String args[]) {
@@ -98,5 +111,6 @@ public class J03Maximum {
 
         System.out.println("Approach 1:- " + maxValueInOrder(root));
         System.out.println("Approach 2:- " + maxValueRecursion(root));
+        System.out.println("Approach 3:- " + maxValueIterative(root));
     }
 }
