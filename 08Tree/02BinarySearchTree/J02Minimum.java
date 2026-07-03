@@ -88,6 +88,18 @@ public class J02Minimum {
         }
     }
 
+    // [Expected Approach] Using Iterative Way - O(h) Time and O(1) Space
+    public static int minValueIterative(Node root) {
+        if (root == null) {
+            return -1;
+        }
+        Node curr = root;
+        while (curr.left != null) {
+            curr = curr.left;
+        }
+        return curr.data;
+    }
+
     public static void main(String args[]) {
         root = new Node(50);
 
@@ -109,5 +121,6 @@ public class J02Minimum {
 
         System.out.println("Approach 1:- " + minValueInOrder(root));
         System.out.println("Approach 2:- " + minValueRecursion(root));
+        System.out.println("Approach 3:- " + minValueIterative(root));
     }
 }
