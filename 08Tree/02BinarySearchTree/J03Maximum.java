@@ -55,6 +55,26 @@ public class J03Maximum {
 
     static Node root = null;
 
+    // [Naive Approach] Using Inorder Traversal – O(n) Time and O(n) Space
+    public static void inOrder(Node root, ArrayList<Integer> list) {
+        if (root == null) {
+            return;
+        }
+
+        inOrder(root.left, list);
+        list.add(root.data);
+        inOrder(root.right, list);
+    }
+
+    public static int maxValueInOrder(Node root) {
+        if (root == null) {
+            return -1;
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        inOrder(root, list);
+        return list.get(list.size() - 1);
+    }
+
     public static void main(String args[]) {
         root = new Node(5);
         root.left = new Node(4);
